@@ -6,9 +6,10 @@ import styles from './style.module.css'
 export default function OneRowPL({task, setTaskList, getNewTaskList}) {
 
     const handleDelete = () => {
+        console.log(task._id);
         axios
-        .delete('/' + task._id)
-        .then(res => console.log(res.data));
+        .delete('http://localhost:2087/todo/' + task._id)
+        .then(res => console.log('res.data',res.data));
         getNewTaskList()
     }
 

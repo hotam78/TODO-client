@@ -9,7 +9,6 @@ export default function PrivateBlock() {
     const [taskList, setTaskList] = useState([]);
 
     const getNewTaskList = () => {
-        console.log(taskList);
         axios.
         get('http://localhost:2087/todo')
         .then(res => {
@@ -56,7 +55,7 @@ export default function PrivateBlock() {
         </div>
 
         <div>
-            {taskList.map(task => <OneRowPL task={task} setTaskList={taskList} getNewTaskList={getNewTaskList}/>)}
+            {taskList.map(task => <OneRowPL task={task} setTaskList={setTaskList} getNewTaskList={getNewTaskList}/>)}
         </div>
 
         <div className={styles.buttonsRow}>
