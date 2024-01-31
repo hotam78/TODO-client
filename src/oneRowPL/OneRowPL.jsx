@@ -15,6 +15,7 @@ export default function OneRowPL({task, setTaskList, getNewTaskList}) {
 
     const handleDone = (e) => {
         const checkedNow = e.target.checked;
+        console.log(checkedNow);
         axios
         .put(''+task._id, {done: !checkedNow})
         .then(res => console.log(res.data));

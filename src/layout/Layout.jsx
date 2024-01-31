@@ -4,8 +4,10 @@ import styles from './style.module.css'
 
 export default function Layout() {
   return (
+    <div className={styles.layout}>
     <div className={styles.privateBlock}>
         <PrivateBlock/>
+    </div>
     </div>
   )
 }
