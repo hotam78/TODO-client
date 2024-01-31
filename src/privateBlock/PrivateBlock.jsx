@@ -23,28 +23,38 @@ export default function PrivateBlock() {
 
     // 'All' buttons
 
-    const deleteAll = () => {
+    const deleteAll = (e) => {
+        e.preventDefault();
         axios 
-        .delete('http://localhost:2087/todo/all');
-        getNewTaskList()
+        .delete('http://localhost:2087/todo/all')
+        .then(() => getNewTaskList())
+        .catch(err => console.log(err))
     }
 
-    const handleDone = () => {
-        const noDoneArr = task.filter(v => v.done == false);
+    const handleDone = (e) => {
+        e.preventDefault();
+        const noDoneArr = taskList.filter(v => v.done == false);
         noDoneArr.forEach(v => {
             axios
-            .put('http://localhost:2087/todo/'+task._id, {done:true})
+            .put('http://localhost:2087/todo/'+v._id, {done:true})
+            .then(() => getNewTaskList())
+            .catch(err => console.log(err))
         });
-        getNewTaskList()
     }
 
-    const handleNoDone = () => {
-        const doneArr = task.filter(v => v.done == true);
+    const handleNoDone = (e) => {
+        // לבדוק עם חייב
+        e.preventDefault();
+        const doneArr = taskList.filter(v => v.done == true);
+        console.log(doneArr);
+        const body = {done:false}
         doneArr.forEach(v => {
+            console.log(v._id);
             axios
-            .put('http://localhost:2087/todo/'+task._id, {done:false})
+            .put('http://localhost:2087/todo/'+v._id, body)
+            .then(() => getNewTaskList())
+            .catch(err => console.log(err))
         });
-        getNewTaskList()
     }
 
     

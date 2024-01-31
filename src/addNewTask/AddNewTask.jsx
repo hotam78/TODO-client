@@ -17,17 +17,20 @@ export default function AddNewTask({getNewTaskList}) {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const body = {
             title: titleInput,
             date: dateInput
         }
         console.log(body);
         axios
-        .post('http://localhost:2087', body)
+        .post('http://localhost:2087/todo', body)
+        .then(()=>{
         setTitleInput('');
         setInputDate('');
         getNewTaskList();
+        })
+        .catch(error => console.log(error))
     }
 
   return (
