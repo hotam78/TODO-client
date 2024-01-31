@@ -9,8 +9,8 @@ export default function OneRowPL({task, setTaskList, getNewTaskList}) {
         console.log(task._id);
         axios
         .delete('http://localhost:2087/todo/' + task._id)
-        .then(res => console.log('res.data',res.data));
-        getNewTaskList()
+        .then(res => console.log('res.data',res.data))
+        .then(() => getNewTaskList())
     }
 
     const handleDone = (e) => {
