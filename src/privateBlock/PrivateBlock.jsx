@@ -12,7 +12,7 @@ export default function PrivateBlock() {
         axios.
         get('http://localhost:2087/todo')
         .then(res => {
-            console.log(res.data);
+            console.log('get new task list 👌');
             setTaskList(res.data);
         });
     };
@@ -29,7 +29,7 @@ export default function PrivateBlock() {
         getNewTaskList()
     }
 
-    const handleDown = () => {
+    const handleDone = () => {
         const noDoneArr = task.filter(v => v.done == false);
         noDoneArr.forEach(v => {
             axios
@@ -38,7 +38,7 @@ export default function PrivateBlock() {
         getNewTaskList()
     }
 
-    const handleNoDown = () => {
+    const handleNoDone = () => {
         const doneArr = task.filter(v => v.done == true);
         doneArr.forEach(v => {
             axios
@@ -60,8 +60,8 @@ export default function PrivateBlock() {
 
         <div className={styles.buttonsRow}>
             <button onClick={deleteAll}>Delete All</button>
-            <button onClick={handleDown}>Done All</button>
-            <button onClick={handleNoDown}>Didn`t Do All</button>
+            <button onClick={handleDone}>Done All</button>
+            <button onClick={handleNoDone}>Didn`t Do All</button>
         </div>
 
         <div>

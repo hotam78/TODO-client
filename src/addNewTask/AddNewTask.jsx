@@ -16,7 +16,8 @@ export default function AddNewTask({getNewTaskList}) {
         console.log(dateInput);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         const body = {
             title: titleInput,
             date: dateInput
