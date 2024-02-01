@@ -10,21 +10,36 @@ body{
 }
 
 .layout{
-    font-family: 'Poppins', sans-serif;
-}
-.privateBlock{
-    background-color: rgba(171, 110, 18, 0.658);
-    border: black 1px solid;
-    border-radius: 20px;
-    width: 500px;
-    min-height: 400px;
+    width: 100vw;
+    min-height: 100vh;
+    /* שיהיה אפשר לרדת אם צריך */
     height: fit-content;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../image/plain.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left top;
+    position: relative;
+    padding-top: 150px;
+    padding-left: 750px;
 }
 
-button{
+
+button, input{
     background-color: rgba(85, 107, 47, 0.614);
     border: 10x solid black;
     border-radius: 6px;
     padding: 3px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; 
 }
+
+input::placeholder{
+    color: black;
+}
+
+header{
+    width: 100%;
+    height: 50px;
+    border: 1px black solid;
+}
+

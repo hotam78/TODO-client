@@ -1,5 +1,19 @@
-.oneRow{
+tr:nth-child(even){
+    background-color: rgba(240, 248, 255, 0.557);
+}
+.oneRow>td:last-child{
     display: flex;
-    justify-content: space-between;
-    border-color: black;
+    justify-content: end;
+}
+
+td, tr{
+    border: none;
+}
+
+.yes{
+    opacity: 30%;
+}
+
+.timetd{
+    padding-left: 10px;
 }

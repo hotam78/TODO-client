@@ -34,44 +34,46 @@ export default function PrivateBlock() {
     const handleDone = (e) => {
         e.preventDefault();
         const noDoneArr = taskList.filter(v => v.done == false);
+        const body = {done:true}
         noDoneArr.forEach(v => {
             axios
-            .put('http://localhost:2087/todo/'+v._id, {done:true})
-            .then(() => getNewTaskList())
+            .put('http://localhost:2087/todo/'+v._id, body)
             .catch(err => console.log(err))
+            .then(() => getNewTaskList())
         });
     }
 
     const handleNoDone = (e) => {
-        // לבדוק עם חייב
         e.preventDefault();
         const doneArr = taskList.filter(v => v.done == true);
         console.log(doneArr);
-        const body = {done:false}
+        const body = {done: false}
         doneArr.forEach(v => {
             console.log(v._id);
             axios
             .put('http://localhost:2087/todo/'+v._id, body)
-            .then(() => getNewTaskList())
             .catch(err => console.log(err))
+            .then(() => getNewTaskList())
         });
     }
 
     
   return (
-    <div>
-        <div>
+    <div className={styles.privateBlock}>
+        <div className={styles.title}>
             <h1>What do you have to do?</h1>
         </div>
 
-        <div>
+        <table className={styles.table}>
+            <tbody>
             {taskList.map(task => <OneRowPL task={task} setTaskList={setTaskList} getNewTaskList={getNewTaskList}/>)}
-        </div>
+            </tbody>
+        </table>
 
         <div className={styles.buttonsRow}>
-            <button onClick={deleteAll}>Delete All</button>
-            <button onClick={handleDone}>Done All</button>
-            <button onClick={handleNoDone}>Didn`t Do All</button>
+            <button onClick={deleteAll}><i class="fa fa-trash"></i> Delete All</button>
+            <button onClick={handleDone}><i class="fa fa-check"></i> Done All</button>
+            <button onClick={handleNoDone}><i class="fa fa-xmark"></i> Didn`t Do All</button>
         </div>
 
         <div>

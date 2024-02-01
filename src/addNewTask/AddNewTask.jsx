@@ -1,19 +1,18 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import styles from './style.module.css'
+
 
 export default function AddNewTask({getNewTaskList}) {
-    // const [fromInput, setFromInput] = useState({})
     const [titleInput, setTitleInput] = useState('');
     const [dateInput, setInputDate] = useState('')
 
     const handleChangeT = (e) => {
         setTitleInput(e.target.value);
-        console.log(titleInput);
     }
 
     const handleChangeD = (e) => {
         setInputDate(e.target.value);
-        console.log(dateInput);
     }
 
     const handleSubmit = (e) => {
@@ -35,10 +34,10 @@ export default function AddNewTask({getNewTaskList}) {
 
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.addNewTask}>
                 <input type='text' name='title' value={titleInput} onChange={handleChangeT} placeholder='task name' required/>
                 <input type='date' name='date' value={dateInput} onChange={handleChangeD} required/>
-                <button type='submit'>Add</button>
+                <button type='submit'><i class="fa fa-plus"></i> Add</button>
         </form>
     </>
   )

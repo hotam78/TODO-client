@@ -1,5 +1,31 @@
+.privateBlock{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+    position: fixed;
+    background-color: rgba(247, 250, 250, 0.484);
+    /* border: #5b4032; */
+    /* border: #b3b4a9; */
+    /* border: #2a2a30; */
+    border: black 1px solid;
+    border-radius: 20px;
+    width: 550px;
+    /* min-height: 400px; */
+    height: fit-content;
+}
+
 .buttonsRow{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+}
+
+.title{
+    text-align: center;
+    /* color: #e44b46; */
+}
+
+.table{
+    min-height: 80px;
 }

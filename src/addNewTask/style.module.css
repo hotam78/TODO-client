@@ -1,0 +1,4 @@
+.addNewTask{
+    display: flex;
+    justify-content: space-between;
+}
